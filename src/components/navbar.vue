@@ -15,8 +15,6 @@
 <style>
 @import "//at.alicdn.com/t/font_1233862_237r7kuhsoj.css";
 .bottomBar {
-  position: fixed;
-  bottom: 0;
   width: 100%;
   height: 48px;
   background: pink;

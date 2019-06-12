@@ -9,7 +9,7 @@
       <div class="main-right">
         <h4>
           <span class="nm">{{ item.nm }}</span>
-          <span class="imax"></span>
+          <span class="imax" :class="item.version == 'v3d imax' ?'':'towD'"></span>
         </h4>
         <div class="sc">
           观众评<span>{{ item.sc }}</span>
@@ -69,15 +69,16 @@
   font-size: 18px;
   color: #333;
 }
-.towD {
-  background-image: url("~@/img/2d.png")
-}
 .imax {
+  margin-left: 3px;
   width: 43px;
   height: 14px;
   display: inline-block;
   background: url("~@/img/3d.png") no-repeat;
   background-size: cover;
+}
+.towD {
+  background-image: url("~@/img/2d.png")
 }
 
 .main-right button {
@@ -143,7 +144,7 @@ export default {
   },
   methods: {
     getSrc () {
-      console.log(this.list)
+      // console.log(this.list)
       this.list.forEach(item => {
         // https://p0.meituan.net/128.180/
         item.img = item.img.replace(/^http:\/\/p\d.meituan.net\/w.h/g, 'https://p0.meituan.net/128.180/')
