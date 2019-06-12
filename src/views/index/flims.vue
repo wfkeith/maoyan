@@ -4,11 +4,12 @@
       class="navbar"
       > 猫眼电影</div>
     <div class="select">
-      <span>定位</span>
+      <router-link tag="span" to="/city">定位</router-link>
       <div class="switch" :class="active == 1 ? '' : 'active'" @click="active = 0">正在热映</div>
       <div class="switch" :class="active == 1 ? 'active' : ''" @click="active = 1">即将上映</div>
     </div>
     <movieList ref="main1" class="main" :list="flimList" v-if="active == 0"></movieList>
+
   </div>
 </template>
 <script>
@@ -41,9 +42,9 @@ export default {
       // console.log(scrollTop, scrollHeight, clientHeight)
       if (scrollHeight - (scrollTop + clientHeight) <= 50) {
         // console.log('haha')
-        if (this.movieId.length > 0){
+        if (this.movieId.length > 0) {
           if (!this.isLoading) {
-              console.log(this.isLoading)
+            console.log(this.isLoading)
             this.getflim(true)
           }
         } else {
@@ -60,7 +61,7 @@ export default {
     this.$refs.main1.$el.addEventListener('scroll', this.Onscroll)
   },
   updated () {
-    if (this.active == 0) {
+    if (this.active === 0) {
       this.$refs.main1.$el.addEventListener('scroll', this.Onscroll)
     }
   }

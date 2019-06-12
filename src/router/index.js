@@ -6,6 +6,11 @@ Vue.use(VueRouter)
 export default new VueRouter({
   routes: [
     {
+      path: '/city',
+      name: 'city',
+      component: () => import('../views/city/index.vue')
+    },
+    {
       path: '/',
       component: () => import('../views/index/index.vue'),
       children: [
@@ -21,7 +26,7 @@ export default new VueRouter({
           path: '*',
           component: () => import('../views/index/flims.vue')
         }
-      ] 
+      ]
     }
   ]
 })

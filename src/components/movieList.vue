@@ -11,8 +11,11 @@
           <span class="nm">{{ item.nm }}</span>
           <span class="imax" :class="item.version == 'v3d imax' ?'':'towD'"></span>
         </h4>
-        <div class="sc">
+        <div class="sc" v-if="item.sc !== 0">
           观众评<span>{{ item.sc }}</span>
+        </div>
+        <div class="sc" v-else>
+          <span>{{ item.wish }}</span> 人想看
         </div>
         <br />
         <div class="actors">
@@ -23,7 +26,7 @@
           {{ item.showInfo }}
         </div>
       </div>
-      <button class="btn">购买</button>
+      <button class="btn" :style="item.sc == 0 ? 'backgroundColor:#3c9fe6':''">{{ item.sc == 0 ? '预售' : '购买' }}</button>
       <!-- <button></button> -->
     </li>
   </ul>
@@ -63,8 +66,14 @@
   font-size: 17px;
   height: 24px;
   line-height: 24px;
+  overflow: hidden;
 }
 .nm {
+  display: inline-block;
+  max-width: 185px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
   font-weight: 700;
   font-size: 18px;
   color: #333;
@@ -74,6 +83,8 @@
   width: 43px;
   height: 14px;
   display: inline-block;
+  position: relative;
+  top: -6px;
   background: url("~@/img/3d.png") no-repeat;
   background-size: cover;
 }
