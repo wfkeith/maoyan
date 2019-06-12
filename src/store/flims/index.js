@@ -1,23 +1,35 @@
 import http from '@/utils/http'
+import { Toast } from 'vant'
 export default {
-  namespace: true,
+  namespaced: true,
   state: {
-    flimList: []
+    flimList: [],
+    pageNum: 2,
+    arr: []
   },
   mutations: {
     GETFLIM (state, flim) {
       state.flimList = flim
+      // state.arr = flim
     }
   },
   actions: {
     getflim ({ commit }) {
-      http.get('http://localhost:8080/maoyan/ajax/movieOnInfoList')
-        .then(response => {
-          console.log(response)
-        })
-        .catch(error => {
-          console.log(error.msg)
-        })
+      Toast.loading({
+        duration: 0,
+        message: '加载中...'
+      })
+      setTimeout(() => {
+        http.get('http://localhost:8080/maoyan/ajax/movieOnInfoList')
+          .then(response => {
+            let res = response.movieList
+            commit('GETFLIM', res)
+            Toast.clear()
+          })
+          .catch(error => {
+            console.log(error.msg)
+          })
+      }, 500)
     }
   }
 }

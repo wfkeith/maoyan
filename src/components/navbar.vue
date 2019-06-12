@@ -1,13 +1,15 @@
 <template>
   <div class="bottomBar">
-    <div
+    <router-link
      v-for="item in nav"
      :key=item.id
+     to="/cinema"
+     tag="div"
      >
       <span class="iconfont" :class="item.icon">
       </span>
       <p>{{ item.select }}</p>
-    </div>
+    </router-link>
   </div>
 </template>
 <style>

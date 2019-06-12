@@ -3,8 +3,13 @@ import App from './App.vue'
 import router from './router/index'
 import store from './store/index'
 
-import { NavBar } from 'vant'
+import { NavBar, Tab, Tabs, Button, Icon } from 'vant'
 Vue.use(NavBar)
+  .use(Tab)
+  .use(Tabs)
+  .use(Button)
+  .use(Icon)
+
 Vue.config.productionTip = false
 
 new Vue({

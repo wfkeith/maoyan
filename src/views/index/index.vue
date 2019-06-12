@@ -4,6 +4,7 @@
     <navbar/>
   </div>
 </template>
+
 <script>
 import navbar from '@/components/navbar.vue'
 import { mapActions } from 'vuex'
@@ -15,7 +16,7 @@ export default {
     ...mapActions(['getflim'])
   },
   created () {
-    this.getflim()
+    // this.getflim()
   }
 }
 </script>
