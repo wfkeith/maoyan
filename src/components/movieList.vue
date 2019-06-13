@@ -166,7 +166,7 @@ export default {
     // console.log(this.list)
     if (this.list.length > 0) {
       this.getSrc()
-      console.log(this.list)
+      // console.log(this.list)
     }
   }
 }

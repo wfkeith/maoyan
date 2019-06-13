@@ -9,12 +9,13 @@
       <div class="switch" :class="active == 1 ? 'active' : ''" @click="active = 1">即将上映</div>
     </div>
     <movieList ref="main1" class="main" :list="flimList" v-if="active == 0"></movieList>
-
+    <wishMovie class="main" v-else></wishMovie>
   </div>
 </template>
 <script>
 import { mapActions, mapState } from 'vuex'
 import movieList from '@/components/movieList.vue'
+import wishMovie from '@/components/wishMovie.vue'
 import { Toast } from 'vant'
 export default {
   data () {
@@ -23,7 +24,8 @@ export default {
     }
   },
   components: {
-    movieList
+    movieList,
+    wishMovie
   },
   computed: {
     ...mapState('film', [
@@ -39,12 +41,9 @@ export default {
       let scrollTop = this.$refs.main1.$el.scrollTop
       let scrollHeight = this.$refs.main1.$el.scrollHeight
       let clientHeight = this.$refs.main1.$el.clientHeight
-      // console.log(scrollTop, scrollHeight, clientHeight)
       if (scrollHeight - (scrollTop + clientHeight) <= 50) {
-        // console.log('haha')
         if (this.movieId.length > 0) {
           if (!this.isLoading) {
-            console.log(this.isLoading)
             this.getflim(true)
           }
         } else {
@@ -58,7 +57,9 @@ export default {
     // window.addEventListener("scroll", this.Onscroll)
   },
   mounted () {
-    this.$refs.main1.$el.addEventListener('scroll', this.Onscroll)
+    if(this.active == 0){
+      this.$refs.main1.$el.addEventListener('scroll', this.Onscroll)
+    }
   },
   updated () {
     if (this.active === 0) {
