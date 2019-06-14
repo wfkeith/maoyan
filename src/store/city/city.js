@@ -4,7 +4,7 @@ import http from '@/utils/http'
 export default {
   namespaced: true,
   state: {
-    cityList: Array
+    cityList: []
   },
   mutations: {
     SETCITYS (state, list) {
@@ -16,7 +16,7 @@ export default {
       http.get('http://localhost:8080/maoyan/dianying/cities.json')
         .then(res => {
           console.log(res)
-          commit('SETCITYS', res)
+          commit('SETCITYS', res.cts)
         })
         .catch(err => {
           console.log(err.msg)

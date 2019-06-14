@@ -1,4 +1,5 @@
 import http from '@/utils/http'
+import axios from 'axios'
 import { Toast } from 'vant'
 export default {
   namespaced: true,
@@ -41,7 +42,9 @@ export default {
         }
         http.get('http://localhost:8080/maoyan/ajax/' + params)
           .then(response => {
+            // console.log(response,'haha')
             if (response.coming.length == 0) {
+              
               let res = response.movieList
               commit('GETFLIM', res)
               commit('GETMOVIE', response.movieIds.splice(12))

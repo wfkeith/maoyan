@@ -156,18 +156,16 @@ export default {
   methods: {
     getSrc () {
       // console.log(this.list)
-      this.list.forEach(item => {
-        // https://p0.meituan.net/128.180/
-        item.img = item.img.replace(/^http:\/\/p\d.meituan.net\/w.h/g, 'https://p0.meituan.net/128.180/')
-      })
+      if (this.list.length > 0) {
+        this.list.forEach(item => {
+          // https://p0.meituan.net/128.180/
+          item.img = item.img.replace(/^http:\/\/p\d.meituan.net\/w.h/g, 'https://p0.meituan.net/128.180/')
+        })
+      }
     }
   },
   created () {
-    // console.log(this.list)
-    if (this.list.length > 0) {
-      this.getSrc()
-      // console.log(this.list)
-    }
+      // this.getSrc()
   }
 }
 </script>

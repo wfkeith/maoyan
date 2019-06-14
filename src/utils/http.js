@@ -1,8 +1,8 @@
 import axios from 'axios'
 
-const http = axios.create();
+const http = axios.create()
 
-http.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://m.maoyan.com' : "http://m.maoyan.com"
+http.defaults.baseURL = process.env.NODE_ENV === 'production' ? 'http://m.maoyan.com' : 'http://m.maoyan.com'
 
 http.defaults.timeout = 10000
 

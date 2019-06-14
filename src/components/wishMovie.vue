@@ -58,7 +58,7 @@ export default {
   methods: {
     ...mapActions('wish', ['getWishList', 'getComingList']),
     resetSrc (list) {
-      this.date = list[0].comingTitle
+      this.date = this.comingList[0].comingTitle
       list.forEach(item => {
         // https://p0.meituan.net/128.180/
         item.img = item.img.replace(/^http:\/\/p\d.meituan.net\/w.h/g, 'https://p0.meituan.net/128.180/')
