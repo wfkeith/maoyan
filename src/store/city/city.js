@@ -8,7 +8,23 @@ export default {
   },
   getters: {
     sortList (state) {
-
+      var target = []
+      let index = 0
+      let hash = {}
+      state.cityList.forEach(item => {
+        let py = item.py.charAt(0).toUpperCase()
+        if (hash[py]) {
+          target[hash[py] - 1].list.push(item)
+        } else {
+          hash[py] = ++ index
+          let obj = {
+            py: py,
+            list: [item]
+          }
+          target.push(obj)
+        }
+      })
+      return target.sort((a, b) =>  a.py.charCodeAt() - b.py.charCodeAt())
     }
   },
   mutations: {

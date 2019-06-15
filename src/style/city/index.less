@@ -2,7 +2,6 @@ html, body {
   height: 100%; 
 }
 .container {
-  background: pink;
   width: 100%;
   height: 100%;
   display: flex;
@@ -54,10 +53,25 @@ html, body {
   padding-left: 15px;
   line-height: 30px;
 }
-
+.city-tit {
+  padding-left: 25px;
+}
+.city-item {
+  height: 44px;
+  line-height: 44px;
+  margin-left: 15px;
+  border-bottom: 1px solid #c8c7cc;
+}
+.city-item:last-child {
+  border: 0;
+}
 /*  侧边栏   */
 .selection {
   width: 35px;
   flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
   background: lightyellow;
+  align-items: center;
+  justify-content: center;
 }
