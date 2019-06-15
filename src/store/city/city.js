@@ -6,6 +6,11 @@ export default {
   state: {
     cityList: []
   },
+  getters: {
+    sortList (state) {
+
+    }
+  },
   mutations: {
     SETCITYS (state, list) {
       state.cityList = list
@@ -13,9 +18,9 @@ export default {
   },
   actions: {
     getcitys ({ commit }) {
-      http.get('http://localhost:8080/maoyan/dianying/cities.json')
+      http.get('/maoyan/dianying/cities.json')
         .then(res => {
-          console.log(res)
+          // console.log(res)
           commit('SETCITYS', res.cts)
         })
         .catch(err => {

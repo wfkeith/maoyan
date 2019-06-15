@@ -16,7 +16,7 @@ export default {
   },
   actions: {
     getWishList ({ commit, state }) {
-      http.get('http://localhost:8080/maoyan/ajax/mostExpected?ci=30&limit=10&offset=0&token=')
+      http.get('/maoyan/ajax/mostExpected?ci=30&limit=10&offset=0&token=')
         .then(res => {
           // console.log(res)
           commit('SETWISHLIST', res.coming)
@@ -26,7 +26,7 @@ export default {
         })
     },
     getComingList ({ commit, state }) {
-      http.get('http://localhost:8080/maoyan/ajax/comingList', {
+      http.get('/maoyan/ajax/comingList', {
         params: {
           'ci': '30',
           'token': '',

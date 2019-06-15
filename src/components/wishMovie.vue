@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="wish_container">
     <div class="mostwish">
       <p class="title">近期最受期待</p>
       <ul class="wishlist">
@@ -73,7 +73,7 @@ export default {
 </script>
 
 <style scoped>
-  .container {
+  .wish_container {
     display: flex;
     flex-direction: column;
   }

@@ -3,7 +3,7 @@
     <router-link
      v-for="item in nav"
      :key=item.id
-     to="/cinema"
+     to="/flims"
      tag="div"
      >
       <span class="iconfont" :class="item.icon">

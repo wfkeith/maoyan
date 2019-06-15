@@ -57,7 +57,7 @@ export default {
     // window.addEventListener("scroll", this.Onscroll)
   },
   mounted () {
-    if(this.active == 0){
+    if (this.active === 0) {
       this.$refs.main1.$el.addEventListener('scroll', this.Onscroll)
     }
   },
@@ -68,6 +68,6 @@ export default {
   }
 }
 </script>
-<style>
+<style scoped>
 @import '~@/style/films/index.less';
 </style>

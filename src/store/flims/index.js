@@ -40,11 +40,10 @@ export default {
           // bol = bol || true
           // commit('SETLOADING', bol)
         }
-        http.get('http://localhost:8080/maoyan/ajax/' + params)
+        http.get('/maoyan/ajax/' + params)
           .then(response => {
             // console.log(response,'haha')
-            if (response.coming.length == 0) {
-              
+            if (response.coming.length === 0) {
               let res = response.movieList
               commit('GETFLIM', res)
               commit('GETMOVIE', response.movieIds.splice(12))
